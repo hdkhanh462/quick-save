@@ -28,7 +28,7 @@ async function loadFolders() {
       });
 
       chrome.runtime.sendMessage({
-        type: "refreshMenus",
+        type: "REFRESH_MENUS",
       });
 
       loadFolders();
@@ -63,7 +63,7 @@ document.getElementById("addBtn").onclick = async () => {
   });
 
   chrome.runtime.sendMessage({
-    type: "refreshMenus",
+    type: "REFRESH_MENUS",
   });
 
   document.getElementById("name").value = "";

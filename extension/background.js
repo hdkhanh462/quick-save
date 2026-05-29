@@ -30,7 +30,7 @@ async function refreshMenus() {
   chrome.contextMenus.removeAll(async () => {
     chrome.contextMenus.create({
       id: "root",
-      title: "Quick Save",
+      title: "Quick save image to...",
       contexts: ["image"],
     });
 
@@ -50,7 +50,7 @@ async function refreshMenus() {
 }
 
 chrome.runtime.onMessage.addListener(async (msg) => {
-  if (msg.type === "refreshMenus") {
+  if (msg.type === "REFRESH_MENUS") {
     await refreshMenus();
   }
 });
