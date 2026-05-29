@@ -85,10 +85,21 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     }
 
     console.log("Saved:", response);
-    chrome.tabs.sendMessage(tab.id, {
-      type: "SHOW_TOAST",
-      success: true,
-      text: `✅ Saved to ${folder.name}`,
-    });
+    chrome.tabs.sendMessage(
+      tab.id,
+      {
+        type: "SHOW_TOAST",
+        success: true,
+        text: `✅ Saved to ${folder.name}`,
+      },
+      () => {
+        if (chrome.runtime.lastError) {
+          console.log(
+            "Toast delivery failed:",
+            chrome.runtime.lastError.message,
+          );
+        }
+      },
+    );
   });
 });

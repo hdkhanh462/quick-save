@@ -112,16 +112,15 @@ async function handleMessage(msg) {
 }
 
 (async () => {
-  while (true) {
-    try {
-      const msg = await readMessage();
-
-      await handleMessage(msg);
-    } catch (err) {
-      sendMessage({
-        success: false,
-        error: err.message,
-      });
-    }
+  try {
+    const msg = await readMessage();
+    await handleMessage(msg);
+  } catch (err) {
+    sendMessage({
+      success: false,
+      error: err.message,
+    });
   }
+
+  process.exit(0);
 })();
