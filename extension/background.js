@@ -55,7 +55,7 @@ chrome.runtime.onMessage.addListener(async (msg) => {
   }
 });
 
-chrome.contextMenus.onClicked.addListener(async (info) => {
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (!info.srcUrl) return;
 
   const data = await chrome.storage.sync.get("folders");
@@ -75,9 +75,20 @@ chrome.contextMenus.onClicked.addListener(async (info) => {
   chrome.runtime.sendNativeMessage(HOST_NAME, payload, (response) => {
     if (chrome.runtime.lastError) {
       console.error(chrome.runtime.lastError.message);
+      chrome.tabs.sendMessage(tab.id, {
+        type: "SHOW_TOAST",
+        success: false,
+        text: "❌ Save failed",
+      });
+
       return;
     }
 
     console.log("Saved:", response);
+    chrome.tabs.sendMessage(tab.id, {
+      type: "SHOW_TOAST",
+      success: true,
+      text: `✅ Saved to ${folder.name}`,
+    });
   });
 });
