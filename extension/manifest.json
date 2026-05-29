@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Quick Save Native",
+  "version": "1.0.0",
+  "permissions": ["contextMenus", "storage", "nativeMessaging"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html"
+}

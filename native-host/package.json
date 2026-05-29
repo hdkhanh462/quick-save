@@ -1,0 +1,9 @@
+{
+  "name": "quicksave-host",
+  "version": "1.0.0",
+  "main": "host.js",
+  "type": "module",
+  "dependencies": {
+    "axios": "^1.7.2"
+  }
+}
