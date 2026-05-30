@@ -1,4 +1,4 @@
-$manifestPath = "F:\PersonalProjects\Extensions\quick-save\native-host\native-host.json"
+$manifestPath = "F:\PersonalProjects\Extensions\quick-save-ext\native-host\native-host.json"
 
 $regPath = "HKCU:\Software\Google\Chrome\NativeMessagingHosts\com.quicksave.host"
 

@@ -1,7 +1,7 @@
 {
   "name": "com.quicksave.host",
   "description": "Quick Save Native Host",
-  "path": "F:\\PersonalProjects\\Extensions\\quick-save\\native-host\\start-host.cmd",
+  "path": "F:\\PersonalProjects\\Extensions\\quick-save-ext\\native-host\\start-host.cmd",
   "type": "stdio",
-  "allowed_origins": ["chrome-extension://jmgpkpdhgjlbjkmimfggkegdkbfaaamk/"]
+  "allowed_origins": ["chrome-extension://lknappdgollhoheeadhklehgehlflodk/"]
 }
