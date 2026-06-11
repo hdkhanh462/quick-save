@@ -84,6 +84,19 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
       return;
     }
 
+    if (!response || !response.success) {
+      console.error(
+        "Error from native host:",
+        response?.error || "Unknown error",
+      );
+      chrome.tabs.sendMessage(tab.id, {
+        type: "SHOW_TOAST",
+        success: false,
+        text: `❌ Save failed: ${response?.error || "Unknown error"}`,
+      });
+      return;
+    }
+
     console.log("Saved:", response);
     chrome.tabs.sendMessage(
       tab.id,
